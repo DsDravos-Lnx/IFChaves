@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="idfundo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastroUserController">
+   <children>
+      <Button layoutX="763.0" layoutY="504.0" mnemonicParsing="false" onAction="#buttonCancelarAction" prefHeight="53.0" prefWidth="216.0" text="Cancelar" />
+      <TextField fx:id="textNome" layoutX="463.0" layoutY="199.0" prefHeight="44.0" prefWidth="512.0" promptText="Nome Completo" />
+      <TextField fx:id="textMatricula" layoutX="463.0" layoutY="269.0" prefHeight="44.0" prefWidth="512.0" promptText="Matricula" />
+      <TextField fx:id="textEmail" layoutX="463.0" layoutY="348.0" prefHeight="44.0" prefWidth="512.0" promptText="Email" />
+      <Button layoutX="463.0" layoutY="504.0" mnemonicParsing="false" onAction="#buttonCadastrarAction" prefHeight="53.0" prefWidth="216.0" text="Cadastrar" />
+      <Pane prefHeight="600.0" prefWidth="430.0" style="-fx-background-color: #E1E8EF;">
+         <children>
+            <ImageView fitHeight="275.0" fitWidth="220.0" layoutX="105.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/ifLogo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Text layoutX="555.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro Usuário">
+         <font>
+            <Font name="Arial" size="45.0" />
+         </font>
+      </Text>
+      <Label fx:id="labelErro" layoutX="467.0" layoutY="425.0" prefHeight="61.0" prefWidth="512.0" textFill="#cd1d1d">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelOK" layoutX="529.0" layoutY="128.0" prefHeight="53.0" prefWidth="397.0" textAlignment="CENTER" textFill="#2d92cd">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
