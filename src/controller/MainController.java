@@ -1,5 +1,6 @@
 package controller;
 
+import dao.AdminstradorDAO;
 import dao.ChaveDAO;
 import dao.EmprestimoDAO;
 import dao.UsuarioDAO;
@@ -21,6 +22,7 @@ import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import model.Administrador;
 import model.Chave;
 import model.Data;
 import model.Emprestimo;
@@ -63,7 +65,12 @@ public class MainController implements Initializable {
     @FXML private TableColumn<Usuario, String> idUserMat;
     @FXML private TableColumn<Usuario, String> idUserEmail;
     @FXML private TextField textFindUser;
+    //Set Admin Table
     
+    @FXML private TableView<Administrador> tableAdmin;
+    @FXML private TableColumn<Administrador, String> adminName;
+    @FXML private TableColumn<Administrador, String> adminEmail;
+    @FXML private TableColumn<Administrador, String> adminUser;
 
     
    
@@ -82,6 +89,18 @@ public class MainController implements Initializable {
     @FXML
     void buttonActionLoan(ActionEvent event){
         IfcechavesFX.IfcechavesFX.changeScreen("loanScreen");
+    }
+    
+    @FXML void adminButtonNew(ActionEvent event){
+        IfcechavesFX.IfcechavesFX.changeScreen("cadastro");
+    }
+    @FXML void adminButtonEdit(ActionEvent event){
+        
+    }
+    @FXML void adminButtonDelete(ActionEvent event){
+        int numberAdmin = tableAdmin.getSelectionModel().getSelectedItem().getId();
+        AdminstradorDAO.delete(numberAdmin);
+        initTableAdmin();
     }
     
     @FXML
@@ -238,6 +257,7 @@ public class MainController implements Initializable {
         initTable();
         iniciarTableEmprestimos();
         initTableUser();
+        initTableAdmin();
         
        String emp = EmprestimoDAO.dateEmprestimo();
        
@@ -322,6 +342,16 @@ public class MainController implements Initializable {
     }
     
     //inicia a tabela de emprestimos
+    public void initTableAdmin() {
+
+        adminName.setCellValueFactory(new PropertyValueFactory("nome"));
+        adminEmail.setCellValueFactory(new PropertyValueFactory("email"));
+        adminUser.setCellValueFactory(new PropertyValueFactory("usuario"));
+        
+
+       tableAdmin.setItems(actionUpdateAdmin());
+    }
+    
     public void iniciarTableEmprestimos() {
 
         idEmp.setCellValueFactory(new PropertyValueFactory("id"));
@@ -340,6 +370,11 @@ public class MainController implements Initializable {
 
         return FXCollections.observableArrayList(EmprestimoDAO.listarEmprestimos());
     }
+    public static ObservableList<Administrador> actionUpdateAdmin(){
+
+        return FXCollections.observableArrayList(AdminstradorDAO.ListarAdms());
+    }
+    
 
     @FXML
     void btnEditarChaveAction(ActionEvent event) {

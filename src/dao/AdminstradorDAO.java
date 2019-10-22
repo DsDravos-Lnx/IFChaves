@@ -190,7 +190,7 @@ public class AdminstradorDAO {
         
         
     
-    public List <Administrador> ListarAdms(){
+    public static List <Administrador> ListarAdms(){
         
          Connection dsn = conexao.getconnectar();
          PreparedStatement stmt = null;
@@ -241,7 +241,7 @@ public class AdminstradorDAO {
         
     }
     
-    public void delete(Administrador adm){
+    public static void delete(int id){
         
          Connection dsn = conexao.getconnectar();
          PreparedStatement stmt = null;
@@ -252,7 +252,7 @@ public class AdminstradorDAO {
             try {
              
              stmt =  dsn.prepareStatement(sql);
-             stmt.setInt(1, adm.getId());
+             stmt.setInt(1, id);
         
              int resultado =  stmt.executeUpdate();
              
