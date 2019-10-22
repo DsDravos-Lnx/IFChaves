@@ -37,7 +37,7 @@ public class conexao {
 
             }
 
-            System.out.println("Conectou meu garoto");
+            System.out.println("Conectou meu garoto (getconnectar)");
 
         }
 
@@ -62,7 +62,7 @@ public class conexao {
             return false;
 
         }
-        System.out.println("Desconectou meu garoto");
+        System.out.println("Desconectou meu garoto (desconectar)");
 
         return true;
     }
@@ -81,7 +81,7 @@ public class conexao {
             System.out.println(e.getMessage());
         }
         
-           System.out.println("Deu certo meu garoto");
+           System.out.println("Deu certo meu garoto (statment)");
     }
 
     public static void desconextarComStatementEtbResultSet(Connection con, PreparedStatement stmt, ResultSet rs) {
@@ -95,7 +95,7 @@ public class conexao {
                 System.out.println(e.getMessage());
             }
         }
-         System.out.println("Deu certo meu garoto");
+         System.out.println("Deu certo meu garoto (resultSet)");
     }
     
 }

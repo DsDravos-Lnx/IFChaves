@@ -63,8 +63,7 @@ public class MainController implements Initializable {
     @FXML private TableColumn<Usuario, String> idUserMat;
     @FXML private TableColumn<Usuario, String> idUserEmail;
     @FXML private TextField textFindUser;
-    @FXML
-    private Text idQuant;
+    
 
     
    
@@ -78,11 +77,12 @@ public class MainController implements Initializable {
             int iddUser = tableUser.getSelectionModel().getSelectedItem().getId(); 
             IfcechavesFX.IfcechavesFX.userUpdt = UsuarioDAO.returnUser(iddUser);
             IfcechavesFX.IfcechavesFX.changeScreen("editarUser");
-            
-           
-        
     };
 
+    @FXML
+    void buttonActionLoan(ActionEvent event){
+        IfcechavesFX.IfcechavesFX.changeScreen("loanScreen");
+    }
     
     @FXML
     void actionButtonPesquisa(ActionEvent event) {
@@ -95,7 +95,7 @@ public class MainController implements Initializable {
 
     }
 
-     @FXML
+    @FXML
     void actionReservar(ActionEvent event) {
           if (tableView.getSelectionModel().isEmpty()) {
             
@@ -241,12 +241,12 @@ public class MainController implements Initializable {
         
        String emp = EmprestimoDAO.dateEmprestimo();
        
-       idQuant.setText(emp);
         //pesquisando a partir do texto digitado.
         textPesquisa.setOnKeyReleased((KeyEvent) -> {
 
             tableView.setItems(buscarChave());
         });
+        
         textFindUser.setOnKeyReleased((KeyEvent) -> {
 
             tableUser.setItems(setFindUser());
@@ -350,6 +350,7 @@ public class MainController implements Initializable {
         IfcechavesFX.IfcechavesFX.changeScreen("editarChave");
 
     }
-}   
     
+}   
 
+    

@@ -6,14 +6,11 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DisplacementMap?>
-<?import javafx.scene.effect.FloatMap?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #266846;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
@@ -107,33 +104,17 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Pane fx:id="idEmpQuant" layoutX="32.0" layoutY="385.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="151.0" prefWidth="200.0" style="-fx-background-color: #845EC2;">
-                                 <children>
-                                    <Text fill="#eeeae9" layoutX="23.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emprestimos">
-                                       <font>
-                                          <Font size="27.0" />
-                                       </font>
-                                    </Text>
-                                    <Text fx:id="idQuant" fill="#f5f4f4" layoutX="76.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="48.13671875">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font></Text>
-                                 </children>
-                                 <effect>
-                                    <DisplacementMap>
-                                       <mapData>
-                                          <FloatMap />
-                                       </mapData>
-                                    </DisplacementMap>
-                                 </effect>
-                              </Pane>
+                              <Button layoutX="476.0" layoutY="206.0" mnemonicParsing="false" onAction="#buttonActionLoan" prefHeight="60.0" prefWidth="132.0" text="Relatorio" />
+                              <Button layoutX="48.0" layoutY="103.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="132.0" text="Novo" />
+                              <Button layoutX="48.0" layoutY="206.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="132.0" text="Editar" />
+                              <Button layoutX="476.0" layoutY="103.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="132.0" text="Excluir" />
                            </children></AnchorPane>
                     </content>
                   </Tab>
               </tabs>
             </TabPane>
          </children></Pane>
-      <ImageView fitHeight="282.0" fitWidth="278.0" layoutX="14.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="371.0" fitWidth="319.0" layoutX="-19.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagens/sgcif.png" />
          </image>

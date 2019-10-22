@@ -157,6 +157,57 @@ public class EmprestimoDAO {
        
     }
     
+    
+        public static List<Emprestimo> listarRelatorio(){
+        
+         Connection dsn = conexao.getconnectar();
+        PreparedStatement stmt = null;
+
+        List<Emprestimo> emprestimo = new ArrayList<>();
+        String sql = "SELECT * FROM  emprestimo ORDER BY data DESC, hora DESC";
+        ResultSet rs = null;
+
+        try {
+
+            stmt = dsn.prepareStatement(sql);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                Emprestimo emp = new Emprestimo();
+                emp.setId(rs.getInt("id"));
+                emp.setChave_id(rs.getInt("chave_id"));
+                emp.setUser_id(rs.getInt("user_id"));
+                emp.setData(rs.getString("data"));
+                emp.setHora(rs.getString("hora"));
+                emp.setNome_user(rs.getString("nome_user"));
+                emp.setStatus(rs.getString("status"));
+                emp.setChave_sala(rs.getString("chave_sala"));
+                emp.setAdm(rs.getString("adm"));
+                emp.setData_devolu(rs.getString("data_devolu"));
+                emp.setHora_devolu(rs.getString("hora_devolu"));
+                
+                emprestimo.add(emp);
+
+              
+
+            }
+
+        } catch (SQLException e) {
+
+            System.out.println("Deu errado");
+
+        } finally {
+
+            conexao.desconextarComStatement(dsn, stmt);
+
+        }
+
+        return emprestimo;
+        
+       
+    }
+
      public static Emprestimo findEmprestimos(int id){
         
          Connection dsn = conexao.getconnectar();

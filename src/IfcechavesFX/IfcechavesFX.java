@@ -30,6 +30,7 @@ public class IfcechavesFX extends Application {
     private static Scene editUser;
     private static Scene listUser;
     private static Scene reserva;
+    private static Scene loanScreen;
     
 
     public static Chave chave;
@@ -71,6 +72,9 @@ public class IfcechavesFX extends Application {
         
         Parent fxmlEditarUser = FXMLLoader.load(getClass().getResource("/view/editarUser.fxml"));
         editUser= new Scene(fxmlEditarUser);
+        
+        Parent fxmlLoanScreen = FXMLLoader.load(getClass().getResource("/view/loanScreen.fxml"));
+        loanScreen = new Scene(fxmlLoanScreen);
 
         this.stage = stage;
 
@@ -207,7 +211,19 @@ public class IfcechavesFX extends Application {
             }
             stage.setScene(reserva);
             break;
+            
+            case "loanScreen": {
+                try {
+                    FXMLLoader loader = new FXMLLoader();
+                    AnchorPane a = (AnchorPane) loader.load(IfcechavesFX.class.getResource("/view/loanScreen.fxml"));
+                    loanScreen = new Scene(a);
 
+                } catch (IOException ex) {
+                    Logger.getLogger(IfcechavesFX.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            stage.setScene(loanScreen);
+            break;
 
         }
     }
